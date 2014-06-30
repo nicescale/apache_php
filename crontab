@@ -1,1 +1,0 @@
-20 4 * * * root /usr/local/bin/nicedocker exec $service_id /usr/sbin/logrotate /etc/logrotate.d/apache2
