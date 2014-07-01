@@ -1,8 +1,6 @@
 #!/bin/bash
 
-. path.ini
+/usr/sbin/cron
 
-mkdir -p /data/www
-mkdir -p /data/log
-
-docker run  -d -v /data/www:$data -v /data/log:$log nicescale/apache_php
+. /etc/apache2/envvars &&
+exec /usr/sbin/apache2 -DFOREGROUND

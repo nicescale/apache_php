@@ -13,12 +13,12 @@ RUN   DEBIAN_FRONTEND=noninteractive apt-get -y install apache2 libapache2-mod-p
       php5-msgpack php5-readline php5-radius php5-memcache php5-librdf php5-exactimage php5-enchant \
       php5-stomp php5-mapscript php5-cgi php5-mysqlnd-ms php5-xdebug php5-xsl php5-snmp php5-cli php5-svn \
       php5-recode php5-xhprof php5-mysqlnd php5-memcached php5-interbase php5-json php5-imap php5-rrd \
-      php5-pgsql php5-pspell php5-gdcm php5-odbc php5-lasso php5-gmp php5-gd php5-imagick php5-intl supervisor
+      php5-pgsql php5-pspell php5-gdcm php5-odbc php5-lasso php5-gmp php5-gd php5-imagick php5-intl
 
-RUN   mkdir -p /var/log/supervisor
+RUN   apachectl start
 RUN   mv /etc/php5/apache2/php.ini /etc/apache2/ && ln -s /etc/apache2/php.ini /etc/php5/apache2/php.ini
+ADD   crontab /etc/crontab
 ADD   . /opt/nicedocker
-ADD   supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE  80
-CMD  ["/usr/bin/supervisord"]
+CMD  ["/opt/nicedocker/run.sh"]
