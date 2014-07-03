@@ -16,11 +16,13 @@ Run
   . path.ini
 
   mkdir -p /data/www
+
   mkdir -p /data/log
 
   docker run  -d -v /data/www:$data -v /data/log:$log nicescale/apache_php
 
 At last, push your php code in /data/www on host
+
 
 Logs
 -----
