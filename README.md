@@ -28,3 +28,4 @@ Logs
 -----
 
 cron service run in docker,so logrotate will be execute
+
